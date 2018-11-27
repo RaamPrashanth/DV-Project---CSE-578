@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<global-forwards>
+        <forward name="index" path="/index.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/index" type="com.twittopedia.client.Index">
+        	<forward name="success" path="/index.jsp" />
+        </action>
+    </action-mappings>
+
+</struts-config>
