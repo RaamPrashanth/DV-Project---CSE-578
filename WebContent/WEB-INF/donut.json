@@ -1,0 +1,8 @@
+{
+  "Total": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":140, "sentiment6": 380},
+  "Event1": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":140, "sentiment6": 380},
+  "Event2": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
+  "Event3": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
+  "Event4": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
+  "Event5": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300}
+}

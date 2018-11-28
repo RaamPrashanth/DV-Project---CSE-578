@@ -50,7 +50,6 @@
     border-color: #ffffff;
     height: 303px;
 }
-
 .donutContainer {
     float: right;
     margin: 10px;
@@ -61,7 +60,6 @@
     border-color: #ffffff;
     height: 303px;
 }
-
 .lineContainer {
     float: left;
     margin: 10px;
@@ -72,7 +70,6 @@
     border-color: #ffffff;
     height: 303px;
 }
-
 .popularLinksContainer {
     float: right;
     margin: 10px;
@@ -83,37 +80,29 @@
     border-color: #ffffff;
     height: 303px;
 }
-
 .drpdnmnulstcntr {
 	max-height:150px;
 	overflow:auto;
 }
-
 .f20 {
     font-size: 20px;
 }
-
 .p20 {
     padding: 20px;
 }
-
 .p10 {
     padding: 20px;
 }
-
 .p40 {
     padding: 40px;
 }
-
 .lrp20 {
     padding-right: 20px;
     padding-left: 30px;
 }
-
 body {
     color: #222222;
 }
-
 body, input, select, button {
     background-attachment: fixed;
     border: 0 none;
@@ -124,17 +113,14 @@ body, input, select, button {
     letter-spacing: .5px;
     font-size: 14px;
 }
-
 hr {
 	color:#ffffff;
 }
-
 .drpdwnmnulst ul {
     padding: 0px;
     margin: 0px;
     list-style: none;
 }
-
 ul, menu, dir {
     display: block;
     margin-block-start: 1em;
@@ -158,7 +144,6 @@ li {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .barChartContainer {
     float: left;
     margin: 10px;
@@ -180,26 +165,8 @@ li {
     height: 600px;
 }
 
-
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-function hashTagClick() {
-	$("#hashTags").addClass("sel");
-	$("#tweets").removeClass("sel");
-	$('#tweetsListDiv').hide();
-	$('#hashTagsListDiv').show();
-}
-
-function tweetListClick() {
-	$("#tweets").addClass("sel");
-	$("#hashTags").removeClass("sel");
-	$('#hashTagsListDiv').hide();
-	$('#tweetsListDiv').show();
-}
-
-
-</script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
@@ -208,6 +175,21 @@ function tweetListClick() {
 <script src="donut.js"></script>
 <script src="map.js"></script>
 
+<script>
+function hashTagClick() {
+	$("#hashTags").addClass("sel");
+	$("#tweets").removeClass("sel");
+	$('#tweetsListDiv').hide();
+	$('#hashTagsListDiv').show();
+}
+function tweetListClick() {
+	$("#tweets").addClass("sel");
+	$("#hashTags").removeClass("sel");
+	$('#hashTagsListDiv').hide();
+	$('#tweetsListDiv').show();
+}
+
+</script>
 <body bgcolor="#f2f8fb">
 <div style="" class="mapContainer">
     <div class="f20 p10 head csrdrag">Map
@@ -241,12 +223,12 @@ function tweetListClick() {
         <hr>
     </div>
     <div class="tc p20">
-        <!-- <div class="mt40">
-             <div alt="" draggable="false"></div>
-         </div>
-         -->
+        <div class="mt40">
+            <div alt="" draggable="false"></div>
+        </div>
         <div class="mt20 f18" style="font-weight:normal;" id="donutContainer"></div>
     </div>
+</div>
 </div>
 <div id="lineOuterContainer" style="" class="lineContainer">
     <div class="f20 p20 head csrdrag">Event Line Graph
@@ -273,13 +255,18 @@ function tweetListClick() {
         <div class="mt20 f18" style="font-weight:normal;" id="linksContainer">Links goes here.</div>
     </div>
 </div>
+</div>
+</div>
 <div style="" class="barChartContainer">
     <div class="f20 p10 head csrdrag">Top Cities Stacked bar chart
         <hr>
     </div>
     <div>
         <div class="tc p20">
-            <div class="mt20 f18" style="font-weight:normal;" id="barChartContainer">anush</div>
+            <div class="mt40">
+                <div alt="" draggable="false"></div>
+            </div>
+            <div class="mt20 f18" style="font-weight:normal;" id="barChartContainer">Stacked Bar Chart</div>
         </div>
     </div>
 </div>
