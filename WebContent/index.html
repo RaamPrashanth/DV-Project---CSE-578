@@ -29,7 +29,7 @@
     -ms-flex-positive: 1;
     flex-grow: 1;
     color: #868686; }
-.blue{color:#fff!important;background-color:#2196F3!important}
+.blue{color:#fff!important;background-color:#2196F3!important;height:4px;}
 .mapContainer {
     float: left;
     margin: 10px;
@@ -93,12 +93,24 @@
     font-size: 20px;
 }
 
+.f18 {
+    font-size: 18px;
+}
+
+.f15 {
+    font-size: 15px;
+}
+
 .p20 {
     padding: 20px;
 }
 
 .p10 {
-    padding: 20px;
+    padding: 10px;
+}
+
+.p5 {
+    padding: 5px;
 }
 
 .p40 {
@@ -108,6 +120,14 @@
 .lrp20 {
     padding-right: 20px;
     padding-left: 30px;
+}
+
+.fb {
+	color: #3b94d9;
+}
+
+.fg {
+	color: #868686;
 }
 
 body {
@@ -180,6 +200,10 @@ li {
     height: 600px;
 }
 
+.scroll {
+	overflow-y: auto;
+	height: 220px;
+}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -207,10 +231,12 @@ function tweetListClick() {
 <script src="bar.js"></script>
 <script src="donut.js"></script>
 <script src="map.js"></script>
+<script src="hashtags.js"></script>
+<script src="hashTag.json"></script>
 
 <body bgcolor="#f2f8fb">
 <div style="" class="mapContainer">
-    <div class="f20 p10 head csrdrag">Map
+    <div class="f20 p20 head csrdrag">Map
         <hr>
     </div>
     <div>
@@ -225,10 +251,12 @@ function tweetListClick() {
         <a id="tweets" class="lrp20" onclick="tweetListClick()">Tweets</a>
         <hr>
     </div>
-    <div id="hashTagsListDiv" class="f18">
-        #hashtag list
+    <div id="hashTagsListDiv" class="f18 scroll">
+        <div class="p5 fb" style="">#tag</div>
+        <div class="blue" style="width:200px"></div>
+        <div class="p5 fg f15" style="">500</div>
     </div>
-    <div id="tweetsListDiv" class="f18" style="display: none;">
+    <div id="tweetsListDiv" class="f18 scroll" style="display: none;">
         tweets List
     </div>
 </div>
@@ -265,7 +293,7 @@ function tweetListClick() {
     </div>
 </div>
 <div style="" class="barChartContainer">
-    <div class="f20 p10 head csrdrag">Top Cities Stacked bar chart
+    <div class="f20 p20 head csrdrag">Top Cities Stacked bar chart
         <hr>
     </div>
     <div>
@@ -275,7 +303,7 @@ function tweetListClick() {
     </div>
 </div>
 <div style="" class="wordCloudContainer">
-    <div class="f20 p10 head csrdrag">wordCloud
+    <div class="f20 p20 head csrdrag">wordCloud
         <hr>
     </div>
     <div>
