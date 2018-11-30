@@ -1,6 +1,5 @@
 var arr = {};
 $(function() {
-//loadHashtags(0);
 	readTextFile("hashTag.json", function(text){
 		arr = JSON.parse(text);
 		loadHashtags(0);

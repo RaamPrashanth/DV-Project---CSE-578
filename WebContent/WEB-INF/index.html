@@ -205,6 +205,70 @@ li {
 	height: 220px;
 }
 
+.tweet {
+    padding: 8px 8px 4px 8px;
+    font-size: 14px;
+}
+
+.tweet-top {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.tweet-user-photo {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 50px;
+    overflow: hidden;
+    background: #e2e2e2;
+}
+.tweet-body {
+    padding-left: 8px;
+    line-height: 1.2;
+    padding-bottom: 6px;
+}
+.user-info {
+    margin-bottom: 2px;
+}
+.name {
+    font-weight: bold;
+    color: #3b94d9;
+    cursor: pointer;
+}
+.time {
+    color: #a7a7a7;
+    font-size: 12px;
+}
+.tweet-link {
+    text-decoration: none;
+    color: #3b94d9;
+}
+
+.anticipation {
+	background:#B667CD;
+}
+.excited {
+	background:#8FD366;
+}
+.bored {
+	background:#F0AE5F;
+}
+.happy {
+	background:#E8EA5E;
+}
+.surprised {
+	background:#625892;
+}
+.enraged {
+	background:#C73131;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -233,6 +297,8 @@ function tweetListClick() {
 <script src="map.js"></script>
 <script src="hashtags.js"></script>
 <script src="hashTag.json"></script>
+<script src="tweets.js"></script>
+<script src="links.js"></script>
 
 <body bgcolor="#f2f8fb">
 <div style="" class="mapContainer">
@@ -241,7 +307,9 @@ function tweetListClick() {
     </div>
     <div>
         <div class="tc p20">
-            <div class="f18" style="font-weight:normal;" id="MapContainer">Map goes here</div>
+            <div class="f18" style="font-weight:normal;" id="MapContainer">
+            <img src="dotmap.jpeg"/>
+            </div>
         </div>
     </div>
 </div>
@@ -257,7 +325,7 @@ function tweetListClick() {
         <div class="p5 fg f15" style="">500</div>
     </div>
     <div id="tweetsListDiv" class="f18 scroll" style="display: none;">
-        tweets List
+      
     </div>
 </div>
 <div class="donutContainer">
@@ -270,7 +338,9 @@ function tweetListClick() {
              <div alt="" draggable="false"></div>
          </div>
          -->
-        <div class="f18" style="font-weight:normal;" id="donutContainer"></div>
+        <div class="f18" style="font-weight:normal;" id="donutContainer">
+        <img src="donut.jpeg"/>
+        </div>
     </div>
 </div>
 <div id="lineOuterContainer" style="" class="lineContainer">
@@ -279,7 +349,9 @@ function tweetListClick() {
     </div>
     <div>
         <div class="tc p20">
-            <div class="f18" style="font-weight:normal;" id="lineContainer">Line graph goes here.</div>
+            <div class="f18" style="font-weight:normal;" id="lineContainer">
+            	<img src="line.jpeg"/>
+            </div>
         </div>
     </div>
 </div>
@@ -288,8 +360,17 @@ function tweetListClick() {
         Popular Links
         <hr>
     </div>
-    <div class="tc p20">
-        <div class="f18" style="font-weight:normal;" id="linksContainer">Links goes here.</div>
+    <div class="tc scroll">
+        <div class="f18" style="font-weight:normal;" id="linksContainer">
+        <a class="tweet-link p5" href="https://t.co/Lb1gvoKbkS" target="_blank">https://www.livesoccertv.com/</a> 
+        <div class="p5 fg f15">6</div>
+        <a class="tweet-link f18 p5" href="https://t.co/Lb1gvoKbkS" target="_blank">https://www.uefa.com/tvguide/index.html#/ </a> 
+        <div class="p5 fg f15">5</div>
+        <a class="tweet-link f18 p5" href="http://livetv.sx/enx/competitions/" target="_blank">http://livetv.sx/enx/competitions/</a> 
+        <div class="p5 fg f15">5</div>
+        <a class="tweet-link f18 p5" href="https://t.co/Lb1gvoKbkS" target="_blank">http://worldsoccertalk.com/champions-league-tv-schedule/</a> 
+        <div class="p5 fg f15">4</div>
+        </div>
     </div>
 </div>
 <div style="" class="barChartContainer">
@@ -298,7 +379,8 @@ function tweetListClick() {
     </div>
     <div>
         <div class="tc p20">
-            <div class="f18" style="font-weight:normal;" id="barChartContainer">anush</div>
+            <div class="f18" style="font-weight:normal;" id="barChartContainer">
+			<img src="bar.jpeg"/></div>
         </div>
     </div>
 </div>
@@ -308,7 +390,9 @@ function tweetListClick() {
     </div>
     <div>
         <div class="tc p20">
-            <div class="f18" style="font-weight:normal;" id="wordCloudContainer">words cloud</div>
+            <div class="f18" style="font-weight:normal;" id="wordCloudContainer">
+            <img src="wordcloud.jpeg"/>
+            </div>
         </div>
     </div>
 </div>
