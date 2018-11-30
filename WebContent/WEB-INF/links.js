@@ -23,6 +23,7 @@ function readTextFile(file, callback) {
 function loadLinks(eventId) {
 	$('#linksContainer').html("");
 	var  arr =  linkArr[eventId];
+	arr.sort((a, b) => b.count-a.count);
 	for (var j = 0; j<arr.length; j++) {
 		var linkObj = arr[j];
 		$('#linksContainer').append("<a class=\"tweet-link p5\" href=\"https://t.co/Lb1gvoKbkS\" target=\"_blank\">" + linkObj.url + "</a><div class=\"p5 fg f15\">" + linkObj.count + "</div>");
