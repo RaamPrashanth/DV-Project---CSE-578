@@ -29,7 +29,7 @@
     -ms-flex-positive: 1;
     flex-grow: 1;
     color: #868686; }
-.blue{color:#fff!important;background-color:#2196F3!important}
+.blue{color:#fff!important;background-color:#2196F3!important;height:4px;}
 .mapContainer {
     float: left;
     margin: 10px;
@@ -50,6 +50,7 @@
     border-color: #ffffff;
     height: 303px;
 }
+
 .donutContainer {
     float: right;
     margin: 10px;
@@ -60,6 +61,7 @@
     border-color: #ffffff;
     height: 303px;
 }
+
 .lineContainer {
     float: left;
     margin: 10px;
@@ -70,6 +72,7 @@
     border-color: #ffffff;
     height: 303px;
 }
+
 .popularLinksContainer {
     float: right;
     margin: 10px;
@@ -80,29 +83,57 @@
     border-color: #ffffff;
     height: 303px;
 }
+
 .drpdnmnulstcntr {
 	max-height:150px;
 	overflow:auto;
 }
+
 .f20 {
     font-size: 20px;
 }
+
+.f18 {
+    font-size: 18px;
+}
+
+.f15 {
+    font-size: 15px;
+}
+
 .p20 {
     padding: 20px;
 }
+
 .p10 {
-    padding: 20px;
+    padding: 10px;
 }
+
+.p5 {
+    padding: 5px;
+}
+
 .p40 {
     padding: 40px;
 }
+
 .lrp20 {
     padding-right: 20px;
     padding-left: 30px;
 }
+
+.fb {
+	color: #3b94d9;
+}
+
+.fg {
+	color: #868686;
+}
+
 body {
     color: #222222;
 }
+
 body, input, select, button {
     background-attachment: fixed;
     border: 0 none;
@@ -113,14 +144,17 @@ body, input, select, button {
     letter-spacing: .5px;
     font-size: 14px;
 }
+
 hr {
 	color:#ffffff;
 }
+
 .drpdwnmnulst ul {
     padding: 0px;
     margin: 0px;
     list-style: none;
 }
+
 ul, menu, dir {
     display: block;
     margin-block-start: 1em;
@@ -144,6 +178,7 @@ li {
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
 .barChartContainer {
     float: left;
     margin: 10px;
@@ -165,16 +200,13 @@ li {
     height: 600px;
 }
 
+.scroll {
+	overflow-y: auto;
+	height: 220px;
+}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="http://d3js.org/queue.v1.min.js"></script>
-<script src="http://d3js.org/d3.v4.min.js"></script>
-<script src="bar.js"></script>
-<script src="donut.js"></script>
-<script src="map.js"></script>
-
 <script>
 function hashTagClick() {
 	$("#hashTags").addClass("sel");
@@ -182,6 +214,7 @@ function hashTagClick() {
 	$('#tweetsListDiv').hide();
 	$('#hashTagsListDiv').show();
 }
+
 function tweetListClick() {
 	$("#tweets").addClass("sel");
 	$("#hashTags").removeClass("sel");
@@ -189,18 +222,26 @@ function tweetListClick() {
 	$('#tweetsListDiv').show();
 }
 
+
 </script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="bar.js"></script>
+<script src="donut.js"></script>
+<script src="map.js"></script>
+<script src="hashtags.js"></script>
+<script src="hashTag.json"></script>
+
 <body bgcolor="#f2f8fb">
 <div style="" class="mapContainer">
-    <div class="f20 p10 head csrdrag">Map
+    <div class="f20 p20 head csrdrag">Map
         <hr>
     </div>
     <div>
         <div class="tc p20">
-            <div class="mt40">
-                <div alt="" draggable="false"></div>
-            </div>
-            <div class="mt20 f18" style="font-weight:normal;" id="MapContainer">Map goes here.</div>
+            <div class="f18" style="font-weight:normal;" id="MapContainer">Map goes here</div>
         </div>
     </div>
 </div>
@@ -210,10 +251,12 @@ function tweetListClick() {
         <a id="tweets" class="lrp20" onclick="tweetListClick()">Tweets</a>
         <hr>
     </div>
-    <div id="hashTagsListDiv" class="f18">
-        #hashtag list
+    <div id="hashTagsListDiv" class="f18 scroll">
+        <div class="p5 fb" style="">#tag</div>
+        <div class="blue" style="width:200px"></div>
+        <div class="p5 fg f15" style="">500</div>
     </div>
-    <div id="tweetsListDiv" class="f18" style="display: none;">
+    <div id="tweetsListDiv" class="f18 scroll" style="display: none;">
         tweets List
     </div>
 </div>
@@ -223,12 +266,12 @@ function tweetListClick() {
         <hr>
     </div>
     <div class="tc p20">
-        <div class="mt40">
-            <div alt="" draggable="false"></div>
-        </div>
-        <div class="mt20 f18" style="font-weight:normal;" id="donutContainer"></div>
+        <!-- <div class="mt40">
+             <div alt="" draggable="false"></div>
+         </div>
+         -->
+        <div class="f18" style="font-weight:normal;" id="donutContainer"></div>
     </div>
-</div>
 </div>
 <div id="lineOuterContainer" style="" class="lineContainer">
     <div class="f20 p20 head csrdrag">Event Line Graph
@@ -236,10 +279,7 @@ function tweetListClick() {
     </div>
     <div>
         <div class="tc p20">
-            <div class="mt40">
-                <div alt="" draggable="false"></div>
-            </div>
-            <div class="mt20 f18" style="font-weight:normal;" id="lineContainer">Line graph goes here.</div>
+            <div class="f18" style="font-weight:normal;" id="lineContainer">Line graph goes here.</div>
         </div>
     </div>
 </div>
@@ -249,37 +289,26 @@ function tweetListClick() {
         <hr>
     </div>
     <div class="tc p20">
-        <div class="mt40">
-            <div alt="" draggable="false"></div>
-        </div>
-        <div class="mt20 f18" style="font-weight:normal;" id="linksContainer">Links goes here.</div>
+        <div class="f18" style="font-weight:normal;" id="linksContainer">Links goes here.</div>
     </div>
 </div>
-</div>
-</div>
 <div style="" class="barChartContainer">
-    <div class="f20 p10 head csrdrag">Top Cities Stacked bar chart
+    <div class="f20 p20 head csrdrag">Top Cities Stacked bar chart
         <hr>
     </div>
     <div>
         <div class="tc p20">
-            <div class="mt40">
-                <div alt="" draggable="false"></div>
-            </div>
-            <div class="mt20 f18" style="font-weight:normal;" id="barChartContainer">Stacked Bar Chart</div>
+            <div class="f18" style="font-weight:normal;" id="barChartContainer">anush</div>
         </div>
     </div>
 </div>
 <div style="" class="wordCloudContainer">
-    <div class="f20 p10 head csrdrag">wordCloud
+    <div class="f20 p20 head csrdrag">wordCloud
         <hr>
     </div>
     <div>
         <div class="tc p20">
-            <div class="mt40">
-                <div alt="" draggable="false"></div>
-            </div>
-            <div class="mt20 f18" style="font-weight:normal;" id="wordCloudContainer">words cloud</div>
+            <div class="f18" style="font-weight:normal;" id="wordCloudContainer">words cloud</div>
         </div>
     </div>
 </div>
