@@ -3,9 +3,26 @@ $(function() {
 	readTextFile("hashTag.json", function(text){
 		arr = JSON.parse(text);
 		loadHashtags(0);
+		loadDonut(0);
+		loadStackedBar(0);
+		loadLine();
+		loadDotMap(0);
+		loadCloud(0);
+		loadChoroplethMap(0);
+		loadLinks(0);
 	});
 
 });
+function changeData(eventId){
+        loadHashtags(eventId);
+		loadDonut(eventId);
+		loadStackedBar(eventId);
+		loadDotMap(eventId);
+		loadCloud(eventId);
+		loadChoroplethMap(eventId);
+		loadTweets(eventId);
+		loadLinks(eventId);
+}
 
 function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();
@@ -21,7 +38,6 @@ function readTextFile(file, callback) {
 
 
 function loadHashtags(eventId) {
-
 	console.log(arr);
 	$('#hashTagsListDiv').html("");
 	console.log($('#hashTagsListDiv'));

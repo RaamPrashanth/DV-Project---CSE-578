@@ -1,8 +1,8 @@
-{
-  "Total": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":140, "sentiment6": 380},
-  "Event1": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":140, "sentiment6": 380},
-  "Event2": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
-  "Event3": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
-  "Event4": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
-  "Event5": {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300}
-}
+[
+  {"sentiment1": 6900, "sentiment2":5500, "sentiment3":300, "sentiment4":1200, "sentiment5":4500, "sentiment6": 1280},
+  {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":140, "sentiment6": 380},
+  {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
+  {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
+  {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300},
+  {"sentiment1": 230, "sentiment2":240, "sentiment3":440, "sentiment4":230, "sentiment5":240, "sentiment6": 300}
+]

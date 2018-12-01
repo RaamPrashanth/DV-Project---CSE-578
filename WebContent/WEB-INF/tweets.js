@@ -2,7 +2,7 @@ var tweetArr = {};
 $(function() {
 	readTextFile("tweets.json", function(text){
 		tweetArr = JSON.parse(text);
-		laodTweets(0);
+		loadTweets(0);
 	});
 
 });
@@ -20,7 +20,7 @@ function readTextFile(file, callback) {
 }
 
 
-function laodTweets(eventId) {
+function loadTweets(eventId) {
 	var sentiment = ['', 'anticipation', 'excited', 'bored', 'happy', 'surprised', 'enraged'];
 	$('#tweetsListDiv').html("");
 	var  arr =  tweetArr[eventId];
