@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import com.opencsv.CSVReader;
@@ -23,6 +26,7 @@ public class JSONInputConstructor {
 	@SuppressWarnings("unchecked")
 	private static void constructInputForMaps(List<Tweet> list) {
 		JSONArray hashArray = new JSONArray();
+		JSONArray newHash = new JSONArray();
 		JSONArray linksArray = new JSONArray();
 		JSONArray tweetsArray = new JSONArray();
 		int i = 0;
@@ -30,13 +34,16 @@ public class JSONInputConstructor {
 			hashArray.add(new JSONObject());
 			linksArray.add(new JSONObject());
 			tweetsArray.add(new JSONObject());
+			newHash.add(new JSONArray());
 			i++;
 		}
 
 		System.out.println("total" + list.size());
 		int k=0;
 		for (Tweet tweet : list) {
-			System.out.println("hashtags processed " + k++);
+			//System.out.println("hashtags processed " + k++);
+			int eventId = ThreadLocalRandom.current().nextInt(1, 4 + 1);
+					//tweet.getEventID();
 			String[] tags = tweet.getHashTags(); 
 			for (String tag : tags) {
 				int count = 1;
@@ -44,11 +51,28 @@ public class JSONInputConstructor {
 					count = (int) ((JSONObject) hashArray.get(0)).get(tag)+1;
 				}
 				((JSONObject) hashArray.get(0)).put(tag, count);
+				
+				if (((JSONObject) hashArray.get(eventId)).containsKey(tag)) {
+					count = (int) ((JSONObject) hashArray.get(eventId)).get(tag)+1;
+				}
+				((JSONObject) hashArray.get(eventId)).put(tag, count);
+			}
+		}
+		
+		for (i = 0; i <= events+1; i++) {
+			Iterator<String> keys = ((JSONObject)hashArray.get(i)).keySet().iterator();
+
+			while(keys.hasNext()) {
+			    String key = keys.next();
+			    JSONObject obj = new JSONObject();
+			    obj.put("tag", key);
+			    obj.put("count", ((JSONObject)hashArray.get(i)).get(key));
+			    ((JSONArray)newHash.get(i)).add(obj);
 			}
 		}
 		
 		try (FileWriter file = new FileWriter("hashTags.json")) {
-			file.write(hashArray.toJSONString());
+			file.write(newHash.toJSONString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,7 +110,7 @@ public class JSONInputConstructor {
 	            	tweet.setUserName(nextRecord[4]);
 	            	tweet.setProfilePicURL(nextRecord[5]);
 	            	if (!nextRecord[6].isEmpty()) {
-	            		String[] tags = nextRecord[6].split("#");
+	            		String[] tags = nextRecord[6].substring(1, nextRecord[6].length()).split("#");
 	            		tweet.setHashTags(tags);
 	            	} else {
 	            		tweet.setHashTags(new String[] {});
