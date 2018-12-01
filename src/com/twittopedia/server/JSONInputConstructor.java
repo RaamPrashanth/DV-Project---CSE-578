@@ -33,7 +33,7 @@ public class JSONInputConstructor {
 		while (i <= events+1) {
 			hashArray.add(new JSONObject());
 			linksArray.add(new JSONObject());
-			tweetsArray.add(new JSONObject());
+			tweetsArray.add(new JSONArray());
 			newHash.add(new JSONArray());
 			i++;
 		}
@@ -41,7 +41,7 @@ public class JSONInputConstructor {
 		System.out.println("total" + list.size());
 		int k=0;
 		for (Tweet tweet : list) {
-			//System.out.println("hashtags processed " + k++);
+			//hash gen
 			int eventId = ThreadLocalRandom.current().nextInt(1, 4 + 1);
 					//tweet.getEventID();
 			String[] tags = tweet.getHashTags(); 
@@ -57,6 +57,21 @@ public class JSONInputConstructor {
 				}
 				((JSONObject) hashArray.get(eventId)).put(tag, count);
 			}
+			
+			//tweet gen
+			int sentiment = ThreadLocalRandom.current().nextInt(0, 6 + 1);
+					//tweet.getSentiment();
+			JSONObject obj = new JSONObject();
+			obj.put("text", tweet.getText());
+			obj.put("userName", tweet.getUserName());
+			obj.put("sentiment", sentiment);
+			obj.put("profilePicURL", tweet.getProfilePicURL());
+			obj.put("createdTime", tweet.getCreatedTime().toGMTString().substring(0, tweet.getCreatedTime().toGMTString().length()-3));
+			if (((JSONArray)tweetsArray.get(eventId)).size() <= 100) {
+			((JSONArray)tweetsArray.get(0)).add(obj);
+			((JSONArray)tweetsArray.get(eventId)).add(obj);
+			}
+			
 		}
 		
 		for (i = 0; i <= events+1; i++) {
@@ -71,8 +86,21 @@ public class JSONInputConstructor {
 			}
 		}
 		
-		try (FileWriter file = new FileWriter("hashTags.json")) {
+		try (FileWriter file = new FileWriter("hashTag.json")) {
 			file.write(newHash.toJSONString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try (FileWriter file = new FileWriter("tweets.json")) {
+			file.write(tweetsArray.toJSONString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try (FileWriter file = new FileWriter("cloud.json")) {
+			file.write(hashArray.toJSONString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
