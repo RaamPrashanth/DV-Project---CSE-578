@@ -1,4 +1,6 @@
 function loadDotMap(eventId){
+    $('#dotMapListDiv').html("");
+    console.log("Dot Map Event ID: ",eventId);
     var sentiment_colors = ["#FEFDD1", "#FBE925", "#F6911F", "#1A61AF", "#612D91", "#E71E24"];
     var format = d3.format(",");
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -68,7 +70,7 @@ function loadDotMap(eventId){
         var x = svg.selectAll("circle")
                 .data([aa,c,d,e,f,g,h, i ,j]).enter()
                 .append("circle")
-                .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+                .attr("cx", function (d) { return projection(d)[0]; })
                 .attr("cy", function (d) { return projection(d)[1]; })
                 .attr("r", "6px")
                 .attr("fill", function (d,i) { return sentiment_colors[i%5]; })

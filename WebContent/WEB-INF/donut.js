@@ -1,8 +1,9 @@
-var colors = ["#4AB847", "#FBE925", "#F6911F", "#1A61AF", "#612D91", "#E71E24"];
-var sentiments = ["Excited", "Happy", "Bored", "Surprised", "Anticipation", "Enraged"]
-
 function loadDonut(eventId){
+    $('#donutContainer').html("");
     d3.json("donut.json", function(d1) {
+        console.log("Donut chart: Event ID",eventId);
+        var colors = ["#4AB847", "#FBE925", "#F6911F", "#1A61AF", "#612D91", "#E71E24"];
+        var sentiments = ["Excited", "Happy", "Bored", "Surprised", "Anticipation", "Enraged"]
         var width = document.getElementById('donutContainer').offsetWidth +20 ,
             height = 200 ,
             radius = 75;

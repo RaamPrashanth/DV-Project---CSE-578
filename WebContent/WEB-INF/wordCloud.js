@@ -1,6 +1,8 @@
 function loadCloud(eventId) {
+    console.log("Cloud container  Event ID: ",eventId);
 
     d3.json("cloud.json", function(word_count){
+    	$('#wordCloudContainer').html("");
             var svg_location = "#wordCloudContainer";
             var width = 600;
             var height = 410;

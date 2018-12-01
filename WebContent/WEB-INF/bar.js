@@ -1,9 +1,11 @@
-var margin = {top: 0, right: 0, bottom: 20, left: 0};
-var width = 650 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
-var colors = ["#4AB847", "#FBE925", "#F6911F", "#1A61AF", "#612D91", "#E71E24"];
-
 function loadStackedBar(eventId){
+    $('#barChartContainer').html("");
+     console.log("Bar chart: Event ID",eventId);
+
+    var margin = {top: 0, right: 0, bottom: 20, left: 0};
+    var width = 650 - margin.left - margin.right,
+        height = 450 - margin.top - margin.bottom;
+    var colors = ["#4AB847", "#FBE925", "#F6911F", "#1A61AF", "#612D91", "#E71E24"];
     var svg = d3.select("#barChartContainer")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
