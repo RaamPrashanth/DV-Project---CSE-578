@@ -86,21 +86,21 @@
       "sentiment1":280,
       "sentiment2":400,
       "sentiment3":900,
-      "sentiment4":620,
+      "sentiment4":220,
       "sentiment5":1000,
       "sentiment6":100
     },
     "India":{
       "sentiment1":180,
       "sentiment2":900,
-      "sentiment3":500,
+      "sentiment3":520,
       "sentiment4":220,
       "sentiment5":5000,
       "sentiment6":400
     },
     "UK":{
       "sentiment1":270,
-      "sentiment2":700,
+      "sentiment2":300,
       "sentiment3":800,
       "sentiment4":620,
       "sentiment5":700,
@@ -111,7 +111,7 @@
       "sentiment2":400,
       "sentiment3":900,
       "sentiment4":620,
-      "sentiment5":1000,
+      "sentiment5":900,
       "sentiment6":100
     },
     "Argentina":{
@@ -119,14 +119,14 @@
       "sentiment2":400,
       "sentiment3":900,
       "sentiment4":620,
-      "sentiment5":1000,
+      "sentiment5":2000,
       "sentiment6":100
     },
     "Portugal":{
       "sentiment1":280,
       "sentiment2":400,
       "sentiment3":900,
-      "sentiment4":620,
+      "sentiment4":320,
       "sentiment5":1000,
       "sentiment6":100
     },
@@ -135,7 +135,7 @@
       "sentiment2":400,
       "sentiment3":900,
       "sentiment4":620,
-      "sentiment5":1000,
+      "sentiment5":2000,
       "sentiment6":100
     },
     "Spain":{
@@ -147,7 +147,7 @@
       "sentiment6":100
     },
     "Brazil":{
-      "sentiment1":280,
+      "sentiment1":480,
       "sentiment2":400,
       "sentiment3":900,
       "sentiment4":620,
@@ -158,7 +158,7 @@
       "sentiment1":280,
       "sentiment2":400,
       "sentiment3":900,
-      "sentiment4":620,
+      "sentiment4":520,
       "sentiment5":1000,
       "sentiment6":100
     }
