@@ -1,4 +1,5 @@
  var prev = "";
+ var prevEventId = -1;
  function loadLine(){
  console.log("Load Line");
     $('#lineContainer').html("");
@@ -52,15 +53,27 @@
         .attr("cx", function(d) { return x(d.date); })
         .attr("cy", function(d) { return y(d.count); })
         .on("click", function(d, i) {
-            if(prev!=""){
-                prev.style("stroke","black")
-                .style("stroke-width",1);
+            if(prevEventId!= i+1){
+                prevEventId = i+1;
+                if(prev!=""){
+                    prev.style("stroke","black")
+                    .style("stroke-width",1);
+                }
+                prev = d3.select(this);
+                prev.style("stroke","red")
+                    .style("stroke-width",3);
+                    changeData(i+1);
             }
-            prev = d3.select(this);
-            prev.style("stroke","red")
-                .style("stroke-width",3);
-                changeData(i+1);
-        });
+        })
+
+        .on("mouseover", function() { tooltip.style("display", null); })
+                  .on("mouseout", function() { tooltip.style("display", "none"); })
+                  .on("mousemove", function(d) {
+                    var xPosition = d3.mouse(this)[0] - 15;
+                    var yPosition = d3.mouse(this)[1] - 25;
+                    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+                    tooltip.select("text").text(d.peak);
+                  });
 
 
 
@@ -70,6 +83,23 @@
 
       svg.append("g")
           .call(d3.axisLeft(y));
+
+      var tooltip = svg.append("g")
+                .attr("class", "tooltip")
+                .style("display", "none");
+
+              tooltip.append("rect")
+                .attr("width", 30)
+                .attr("height", 20)
+                .attr("fill", "white")
+                .style("opacity", 0.5);
+
+              tooltip.append("text")
+                .attr("x", 15)
+                .attr("dy", "1.2em")
+                .style("text-anchor", "middle")
+                .attr("font-size", "12px")
+                .attr("font-weight", "bold");
 
     });
 }
