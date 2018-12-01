@@ -42,8 +42,7 @@ function readTextFile(file, callback) {
 function loadHashtags(eventId) {
     $('#hashTagsListDiv').html("");
     var tagArr = arr[eventId];
-    tagArr.sort((a, b) = > b.count - a.count
-)
+    tagArr.sort((a, b) => b.count - a.count)
     ;
     var max_val = tagArr[0].count;
     for (var j = 0; j < tagArr.length; j++) {

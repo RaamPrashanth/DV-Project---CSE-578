@@ -23,8 +23,7 @@ function readTextFile(file, callback) {
 function loadLinks(eventId) {
     $('#linksContainer').html("");
     var arr = linkArr[eventId];
-    arr.sort((a, b) = > b.count - a.count
-)
+    arr.sort((a, b) => b.count - a.count)
     ;
     for (var j = 0; j < arr.length; j++) {
         var linkObj = arr[j];
