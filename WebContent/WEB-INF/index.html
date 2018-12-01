@@ -1,308 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-.sel {
-    color: #222;
-    border-bottom: solid 2px #FFAD52;
-}
-.tweet-right-panel {
-    width: 288px;
-    height: 100%;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    background: white; }
-.r-panel-header {
-    height: 64px;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    font-size: 18px;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 16px 0 0 16px;
-    position: relative;
-    z-index: 5; }
-.r-panel-label {
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    color: #868686; }
-.blue{color:#fff!important;background-color:#2196F3!important;height:4px;}
-.mapContainer {
-    float: left;
-    margin: 10px;
-    width: calc(73% - 20px);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 627px;
-}
-.tweetContainer {
-    float: right;
-    margin: 10px;
-    width: calc(25%);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 303px;
-}
+    .sel {
+        color: #222;
+        border-bottom: solid 2px #FFAD52;
+    }
 
-.donutContainer {
-    float: right;
-    margin: 10px;
-    width: calc(25%);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 303px;
-}
+    .tweet-right-panel {
+        width: 288px;
+        height: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        background: white;
+    }
 
-.lineContainer {
-    float: left;
-    margin: 10px;
-    width: calc(73% - 20px);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 303px;
-}
+    .r-panel-header {
+        height: 64px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: 18px;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 16px 0 0 16px;
+        position: relative;
+        z-index: 5;
+    }
 
-.popularLinksContainer {
-    float: right;
-    margin: 10px;
-    width: calc(25%);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 303px;
-}
+    .r-panel-label {
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        color: #868686;
+    }
 
-.drpdnmnulstcntr {
-	max-height:150px;
-	overflow:auto;
-}
+    .blue {
+        color: #fff !important;
+        background-color: #2196F3 !important;
+        height: 4px;
+    }
 
-.f20 {
-    font-size: 20px;
-}
+    .mapContainer {
+        float: left;
+        margin: 10px;
+        width: calc(73% - 20px);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 627px;
+    }
 
-.f18 {
-    font-size: 18px;
-}
+    .tweetContainer {
+        float: right;
+        margin: 10px;
+        width: calc(25%);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 303px;
+    }
 
-.f15 {
-    font-size: 15px;
-}
+    .donutContainer {
+        float: right;
+        margin: 10px;
+        width: calc(25%);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 303px;
+    }
 
-.p20 {
-    padding: 20px;
-}
+    .lineContainer {
+        float: left;
+        margin: 10px;
+        width: calc(73% - 20px);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 303px;
+    }
 
-.p10 {
-    padding: 10px;
-}
+    .popularLinksContainer {
+        float: right;
+        margin: 10px;
+        width: calc(25%);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 303px;
+    }
 
-.p5 {
-    padding: 5px;
-}
+    .drpdnmnulstcntr {
+        max-height: 150px;
+        overflow: auto;
+    }
 
-.p40 {
-    padding: 40px;
-}
+    .f20 {
+        font-size: 20px;
+    }
 
-.lrp20 {
-    padding-right: 20px;
-    padding-left: 30px;
-}
+    .f18 {
+        font-size: 18px;
+    }
 
-.fb {
-	color: #3b94d9;
-}
+    .f15 {
+        font-size: 15px;
+    }
 
-.fg {
-	color: #868686;
-}
+    .p20 {
+        padding: 20px;
+    }
 
-body {
-    color: #222222;
-}
+    .p10 {
+        padding: 10px;
+    }
 
-body, input, select, button {
-    background-attachment: fixed;
-    border: 0 none;
-    font-family: 'Open Sans',Arial,Helvetica,sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    letter-spacing: .5px;
-    font-size: 14px;
-}
+    .p5 {
+        padding: 5px;
+    }
 
-hr {
-	color:#ffffff;
-}
+    .p40 {
+        padding: 40px;
+    }
 
-.drpdwnmnulst ul {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
-}
+    .lrp20 {
+        padding-right: 20px;
+        padding-left: 30px;
+    }
 
-ul, menu, dir {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-.drpdwnmnulst ul li a {
-    padding: 10px 10px;
-    color: #222;
-    font-size: 13px;
-    display: block;
-    text-decoration: none;
-    white-space: nowrap;
-    width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
+    .fb {
+        color: #3b94d9;
+    }
 
-.barChartContainer {
-    float: left;
-    margin: 10px;
-    width: calc(50% - 24px);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 600px;
-}
-.wordCloudContainer {
-    float: right;
-    margin: 10px;
-    width: calc(50% - 23px);
-    border: 1px solid #e4ecf1;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    height: 600px;
-}
+    .fg {
+        color: #868686;
+    }
 
-.scroll {
-	overflow-y: auto;
-	height: 220px;
-}
+    body {
+        color: #222222;
+    }
 
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
-}
+    body, input, select, button {
+        background-attachment: fixed;
+        border: 0 none;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        letter-spacing: .5px;
+        font-size: 14px;
+    }
 
-.tweet {
-    padding: 8px 8px 4px 8px;
-    font-size: 14px;
-}
+    hr {
+        color: #ffffff;
+    }
 
-.tweet-top {
-    display: -ms-flexbox;
-    display: flex;
-}
-.tweet-user-photo {
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    background-size: 32px 32px;
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 50px;
-    overflow: hidden;
-    background: #e2e2e2;
-}
-.tweet-body {
-    padding-left: 8px;
-    line-height: 1.2;
-    padding-bottom: 6px;
-}
-.user-info {
-    margin-bottom: 2px;
-}
-.name {
-    font-weight: bold;
-    color: #3b94d9;
-    cursor: pointer;
-}
-.time {
-    color: #a7a7a7;
-    font-size: 12px;
-}
-.tweet-link {
-    text-decoration: none;
-    color: #3b94d9;
-}
- .anticipation {
-	background:#B667CD;
-}
-.excited {
-	background:#8FD366;
-}
-.bored {
-	background:#F0AE5F;
-}
-.happy {
-	background:#E8EA5E;
-}
-.surprised {
-	background:#625892;
-}
-.enraged {
-	background:#C73131;
-}
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
+    .drpdwnmnulst ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+
+    ul, menu, dir {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+    }
+
+    .drpdwnmnulst ul li a {
+        padding: 10px 10px;
+        color: #222;
+        font-size: 13px;
+        display: block;
+        text-decoration: none;
+        white-space: nowrap;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .barChartContainer {
+        float: left;
+        margin: 10px;
+        width: calc(50% - 24px);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 600px;
+    }
+
+    .wordCloudContainer {
+        float: right;
+        margin: 10px;
+        width: calc(50% - 23px);
+        border: 1px solid #e4ecf1;
+        border-radius: 5px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        height: 600px;
+    }
+
+    .scroll {
+        overflow-y: auto;
+        height: 220px;
+    }
+
+    .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 2px;
+    }
+
+    .tweet {
+        padding: 8px 8px 4px 8px;
+        font-size: 14px;
+    }
+
+    .tweet-top {
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .tweet-user-photo {
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        background-size: 32px 32px;
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 50px;
+        overflow: hidden;
+        background: #e2e2e2;
+    }
+
+    .tweet-body {
+        padding-left: 8px;
+        line-height: 1.2;
+        padding-bottom: 6px;
+    }
+
+    .user-info {
+        margin-bottom: 2px;
+    }
+
+    .name {
+        font-weight: bold;
+        color: #3b94d9;
+        cursor: pointer;
+    }
+
+    .time {
+        color: #a7a7a7;
+        font-size: 12px;
+    }
+
+    .tweet-link {
+        text-decoration: none;
+        color: #3b94d9;
+    }
+
+    .anticipation {
+        background: #B667CD;
+    }
+
+    .excited {
+        background: #8FD366;
+    }
+
+    .bored {
+        background: #F0AE5F;
+    }
+
+    .happy {
+        background: #E8EA5E;
+    }
+
+    .surprised {
+        background: #625892;
+    }
+
+    .enraged {
+        background: #C73131;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-function hashTagClick() {
-	$("#hashTags").addClass("sel");
-	$("#tweets").removeClass("sel");
-	$('#tweetsListDiv').hide();
-	$('#hashTagsListDiv').show();
-}
+    function hashTagClick() {
+        $("#hashTags").addClass("sel");
+        $("#tweets").removeClass("sel");
+        $('#tweetsListDiv').hide();
+        $('#hashTagsListDiv').show();
+    }
 
-function tweetListClick() {
-	$("#tweets").addClass("sel");
-	$("#hashTags").removeClass("sel");
-	$('#hashTagsListDiv').hide();
-	$('#tweetsListDiv').show();
-}
+    function tweetListClick() {
+        $("#tweets").addClass("sel");
+        $("#hashTags").removeClass("sel");
+        $('#hashTagsListDiv').hide();
+        $('#tweetsListDiv').show();
+    }
 
-function dotMapClick() {
-	$("#dotMap").addClass("sel");
-	$("#choroplethmap").removeClass("sel");
-	$('#choroplethmapListDiv').hide();
-	$('#dotMapListDiv').show();
-}
-function choroplethmapClick() {
-	$("#choroplethmap").addClass("sel");
-	$("#dotMap").removeClass("sel");
-	$('#dotMapListDiv').hide();
-	$('#choroplethmapListDiv').show();
-}
+    function dotMapClick() {
+        $("#dotMap").addClass("sel");
+        $("#choroplethmap").removeClass("sel");
+        $('#choroplethmapListDiv').hide();
+        $('#dotMapListDiv').show();
+    }
+
+    function choroplethmapClick() {
+        $("#choroplethmap").addClass("sel");
+        $("#dotMap").removeClass("sel");
+        $('#dotMapListDiv').hide();
+        $('#choroplethmapListDiv').show();
+    }
 
 </script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -376,7 +406,7 @@ function choroplethmapClick() {
     </div>
     <div class="tc p20">
         <div class="tc scroll">
-        <div class="f18" style="font-weight:normal;" id="linksContainer"></div>
+            <div class="f18" style="font-weight:normal;" id="linksContainer"></div>
         </div>
     </div>
 </div>
