@@ -220,7 +220,59 @@ li {
     display: -ms-flexbox;
     display: flex;
 }
-
+.tweet-user-photo {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 50px;
+    overflow: hidden;
+    background: #e2e2e2;
+}
+.tweet-body {
+    padding-left: 8px;
+    line-height: 1.2;
+    padding-bottom: 6px;
+}
+.user-info {
+    margin-bottom: 2px;
+}
+.name {
+    font-weight: bold;
+    color: #3b94d9;
+    cursor: pointer;
+}
+.time {
+    color: #a7a7a7;
+    font-size: 12px;
+}
+.tweet-link {
+    text-decoration: none;
+    color: #3b94d9;
+}
+ .anticipation {
+	background:#B667CD;
+}
+.excited {
+	background:#8FD366;
+}
+.bored {
+	background:#F0AE5F;
+}
+.happy {
+	background:#E8EA5E;
+}
+.surprised {
+	background:#625892;
+}
+.enraged {
+	background:#C73131;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -323,9 +375,8 @@ function choroplethmapClick() {
         <hr>
     </div>
     <div class="tc p20">
-        <div class="f18" style="font-weight:normal;" id="linksContainer">Links goes here.</div>
-    <div class="tc scroll">
-        <div class="f18" style="font-weight:normal;" id="linksContainer">
+        <div class="tc scroll">
+        <div class="f18" style="font-weight:normal;" id="linksContainer"></div>
         </div>
     </div>
 </div>
