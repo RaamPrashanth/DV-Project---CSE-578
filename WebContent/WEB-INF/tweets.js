@@ -29,7 +29,7 @@ function laodTweets(eventId) {
 		
 		$('#tweetsListDiv').append("<div class=\"tweet " + sentiment[tweetObj.sentiment] + "\"><div class=\"tweet-top\"><div class=\"tweet-user-photo\"><a href=\"\" target=\"_blank\"><img src=\""
 				+ tweetObj.profilePicURL + "\"style=\"display: inline;\"></a></div><div class=\"tweet-body\"><div class=\"user-info\"><span class=\"name\">@" + tweetObj.userName
-				+ "</span><span class=\"time\">"+ tweetObj.createdTime + "</span></div><div class=\"tweet-text\">" + tweetObj.createdTime
+				+ "</span><span class=\"time\">"+ tweetObj.createdTime + "</span></div><div class=\"tweet-text\">"
 				+ tweetObj.text + "</div></div></div>"
 				);
 	}

@@ -1,7 +1,6 @@
 package com.twittopedia.server;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -10,7 +9,6 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -19,12 +17,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.opencsv.CSVWriter;
-import com.twittopedia.model.*;
+import com.twittopedia.model.Tweet;
 
 public class TweetJsonParser {
 	public static void main(String[] args) {
 		
-		 HashMap<Integer, HashMap<String, Integer>> hashTagMap = new HashMap<Integer, HashMap<String, Integer>>();
 		 JSONParser parser = new JSONParser();
 		 List<Tweet> list = new ArrayList<Tweet>();
 		 try {
@@ -77,7 +74,7 @@ public class TweetJsonParser {
 				 double latitude = 0.0;
 				 double longitude = 0.0;
 				 System.out.println(id + "," + text.trim() + "," + location + ","  + sentiment + "," + userName + "," + profilePicURL + "," + hashTags + ","  + createdTime + "," + latitude + ","  + longitude);
-				 list.add(new Tweet(id, text, location, sentiment, userName, profilePicURL, hashTags, createdTime, latitude, longitude, timeInMilis));
+				 list.add(new Tweet(id, text, location, sentiment, userName, profilePicURL, hashTags, createdTime, latitude, longitude, timeInMilis, 0));
 			 }
 			 
 			 
@@ -103,7 +100,7 @@ public class TweetJsonParser {
 		} 
         CSVWriter writer = new CSVWriter(outputfile);
         
-        String[] header = { "id", "text", "location", "sentiment", "userName", "profilePicURL", "hashTags", "createdTime", "latitude", "longitude", "timeInMilis"}; 
+        String[] header = { "id", "text", "location", "sentiment", "userName", "profilePicURL", "hashTags", "createdTime", "latitude", "longitude", "timeInMilis", "eventId"}; 
         writer.writeNext(header);
         
         for (Tweet tweet : list) {
@@ -112,7 +109,7 @@ public class TweetJsonParser {
         		hashtags = hashtags + "#" + tags;
         	}
         	
-        	writer.writeNext(new String[] {tweet.getId(), tweet.getText(), tweet.getLocation(), tweet.getSentiment()+"", tweet.getUserName(), tweet.getProfilePicURL(), hashtags, tweet.getCreatedTime().toGMTString(), tweet.getLatitude()+"", tweet.getLongitude()+"", tweet.getTimeInMilis()+""});
+        	writer.writeNext(new String[] {tweet.getId(), tweet.getText(), tweet.getLocation(), tweet.getSentiment()+"", tweet.getUserName(), tweet.getProfilePicURL(), hashtags, tweet.getCreatedTime().toGMTString(), tweet.getLatitude()+"", tweet.getLongitude()+"", tweet.getTimeInMilis()+"", tweet.getEventID()+""});
 	
         }
         try {

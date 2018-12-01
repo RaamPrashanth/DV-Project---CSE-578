@@ -15,12 +15,13 @@ public class Tweet {
 	double latitude;
 	double longitude;
 	long timeInMilis;
+	int eventId;
 	
 	public Tweet() {
 	}
 	
 	public Tweet(String id, String text, String location, int sentiment, String userName, String profilePicURL,
-			String[] hashTags, Date createdTime, double latitude, double longitude, long timeInMilis) {
+			String[] hashTags, Date createdTime, double latitude, double longitude, long timeInMilis, int eventId) {
 		super();
 		this.id = id;
 		this.text = text;
@@ -33,6 +34,7 @@ public class Tweet {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.timeInMilis = timeInMilis;
+		this.eventId = eventId;
 	}
 	
 	public String getId() {
@@ -120,6 +122,14 @@ public class Tweet {
 
 	public void setTimeInMilis(long timeInMilis) {
 		this.timeInMilis = timeInMilis;
+	}
+
+	public int getEventID() {
+		return eventId;
+	}
+
+	public void setEventID(int eventID) {
+		this.eventId = eventId;
 	}
 	
 }
