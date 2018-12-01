@@ -38,13 +38,13 @@ function loadDotMap(eventId) {
             .style("opacity", 0.8)
             .style("stroke", "white")
             .style('stroke-width', 0.3)
-            .on('mouseover', function (d) {
+            .on('mouseover', function () {
                 d3.select(this)
                     .style("opacity", 1)
                     .style("stroke", "white")
                     .style("stroke-width", 3);
             })
-            .on('mouseout', function (d) {
+            .on('mouseout', function () {
                 d3.select(this)
                     .style("opacity", 0.8)
                     .style("stroke", "white")

@@ -58,6 +58,7 @@ function loadChoroplethMap(eventId) {
             }))
             .attr("class", "names")
             .attr("d", path);
+
         d3.select("#United_States_of_America_mapper").style('fill', function (f) {
             return sentiment_colors[7]
         });
@@ -85,20 +86,32 @@ function loadChoroplethMap(eventId) {
         d3.select("#Netherlands_mapper").style('fill', function (f) {
             return sentiment_colors[7]
         });
-    }
-
-    d3.json("tweets_final.json", function (data) {
-        for (i = 0; i < data.length; i++) {
-            var sentiment = Math.floor(Math.random() * 5);
-            var id = "#" + data[i].user.location.split(' ').join('_') + "_mapper";
-            if (id.indexOf('(') !== -1) {
-                continue;
+        d3.json("choromap.json", function (d) {
+            data = d[eventId];
+            var max = 0;
+            var min = 1000;
+            for (var key in data) {
+                max = Math.max(max, data[key]);
+                min = Math.min(min, data[key]);
             }
-            d3.select(id).style('fill', function (f) {
-                return sentiment_colors[sentiment];
-            });
-        }
-    });
+            var range = (max - min) / 10;
+
+            for (var key1 in data) {
+                var id = "#" + key1.split(' ').join('_') + "_mapper"
+                if (id.indexOf('(') !== -1) {
+                    continue;
+                }
+
+                d3.select(id).style('fill', function (f) {
+                    colorVal = parseInt(data[key1] / range);
+                    if (colorVal == 0) {
+                        colorVal = Math.floor(Math.random() * 10);
+                    }
+                    return sentiment_colors[colorVal];
+                });
+            }
+        });
+    }
 
 
 }

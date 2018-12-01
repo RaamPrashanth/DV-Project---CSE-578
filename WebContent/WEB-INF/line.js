@@ -5,11 +5,12 @@ function loadLine() {
     console.log("Load Line");
     $('#lineContainer').html("");
     d3.json("line.json", function (error, data) {
+
         var margin = {top: 0, right: 20, bottom: 30, left: 50},
             width = 1000 - margin.left - margin.right,
             height = 200 - margin.top - margin.bottom;
 
-        var parseTime = d3.timeParse("%d %b %Y %H:%M:%S");
+        var parseTime = d3.timeParse("%d %b %Y %H:%M:%S ");
         var x = d3.scaleTime().range([0, width]);
         var y = d3.scaleLinear().range([height, 0]);
         var valueline = d3.line()
@@ -31,10 +32,13 @@ function loadLine() {
         data_with_peak = [];
         data.forEach(function (d) {
             d.date = parseTime(d.date);
-            d.count = d.count;
             if (!(d.peak == "")) {
                 data_with_peak.push(d);
             }
+        });
+
+        data.sort(function (a, b) {
+            return d3.ascending(a.date, b.date)
         });
 
         x.domain(d3.extent(data, function (d) {
@@ -121,3 +125,4 @@ function loadLine() {
 
     });
 }
+
