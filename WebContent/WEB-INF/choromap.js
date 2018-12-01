@@ -87,7 +87,7 @@ function loadChoroplethMap(eventId) {
             return sentiment_colors[7]
         });
         d3.json("choromap.json", function (d) {
-            data = d[eventId];
+            data = d[0];
             var max = 0;
             var min = 1000;
             for (var key in data) {
