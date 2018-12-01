@@ -29,20 +29,32 @@ public class JSONInputConstructor {
 		JSONArray newHash = new JSONArray();
 		JSONArray linksArray = new JSONArray();
 		JSONArray tweetsArray = new JSONArray();
+		JSONArray lineArray = new JSONArray();
+		JSONArray newLine = new JSONArray();
+		lineArray.add(new JSONObject());
+		JSONArray donut = new JSONArray();
+		
+		//newLine.add(new JSONArray());
+		
 		int i = 0;
 		while (i <= events+1) {
 			hashArray.add(new JSONObject());
 			linksArray.add(new JSONObject());
 			tweetsArray.add(new JSONArray());
 			newHash.add(new JSONArray());
+			donut.add(new JSONObject());
 			i++;
 		}
 
 		System.out.println("total" + list.size());
 		int k=0;
+		int[] countArr = new int[6];
 		for (Tweet tweet : list) {
 			//hash gen
-			int eventId = ThreadLocalRandom.current().nextInt(1, 4 + 1);
+			int eventId = ThreadLocalRandom.current().nextInt(1, 4 + 1); 
+			countArr[eventId]++;
+			
+					//ThreadLocalRandom.current().nextInt(1, 4 + 1);
 					//tweet.getEventID();
 			String[] tags = tweet.getHashTags(); 
 			for (String tag : tags) {
@@ -59,8 +71,9 @@ public class JSONInputConstructor {
 			}
 			
 			//tweet gen
-			int sentiment = ThreadLocalRandom.current().nextInt(0, 6 + 1);
-					//tweet.getSentiment();
+			int sentiment = tweet.getSentiment();
+					//ThreadLocalRandom.current().nextInt(0, 6 + 1);
+					//
 			JSONObject obj = new JSONObject();
 			obj.put("text", tweet.getText());
 			obj.put("userName", tweet.getUserName());
@@ -71,6 +84,28 @@ public class JSONInputConstructor {
 			((JSONArray)tweetsArray.get(0)).add(obj);
 			((JSONArray)tweetsArray.get(eventId)).add(obj);
 			}
+			
+			//line gen
+			String date = tweet.getCreatedTime().toGMTString().substring(0, tweet.getCreatedTime().toGMTString().length()-3);
+			if (date.contains("2018")) {
+				int count = 1;
+				if (((JSONObject) lineArray.get(0)).containsKey(date.substring(2,6).trim())) {
+					count = (int) ((JSONObject) lineArray.get(0)).get(date.substring(2,6).trim())+1;
+				}
+				((JSONObject) lineArray.get(0)).put(date.substring(2,6).trim(), count);
+			}
+			
+			//donut gen
+			int count = 1;
+			if (((JSONObject) donut.get(0)).containsKey(sentiment)) {
+				count = (int) ((JSONObject) donut.get(0)).get(sentiment)+1;
+			}
+			((JSONObject) donut.get(0)).put(sentiment, count);
+			count = 1;
+			if (((JSONObject) donut.get(eventId)).containsKey(sentiment)) {
+				count = (int) ((JSONObject) donut.get(eventId)).get(sentiment)+1;
+			}
+			((JSONObject) donut.get(eventId)).put(sentiment, count);
 			
 		}
 		
@@ -86,6 +121,17 @@ public class JSONInputConstructor {
 			}
 		}
 		
+		Iterator<String> keys = ((JSONObject)lineArray.get(0)).keySet().iterator();
+
+		while(keys.hasNext()) {
+		    String key = keys.next();
+		    JSONObject obj = new JSONObject();
+		    obj.put("date", key);
+		    obj.put("count", ((JSONObject)lineArray.get(0)).get(key));
+		    obj.put("peak", "");
+		    newLine.add(obj);
+		}
+		
 		try (FileWriter file = new FileWriter("hashTag.json")) {
 			file.write(newHash.toJSONString());
 		} catch (IOException e) {
@@ -98,12 +144,28 @@ public class JSONInputConstructor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try (FileWriter file = new FileWriter("donut.json")) {
+			file.write(donut.toJSONString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		try (FileWriter file = new FileWriter("cloud.json")) {
 			file.write(hashArray.toJSONString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		try (FileWriter file = new FileWriter("line.json")) {
+			file.write(newLine.toJSONString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (int j : countArr) {
+			System.out.println(j);
 		}
 	}
 
