@@ -5,3 +5,5 @@
 <br>Hari Siddarth Velaudampalayam Kesavan
 <br>Mohan Vasantrao Yadav
 <br>Raam Prashanth Namakkal Sudhakar
+
+run - WebContent/WEB-INF/index.html
